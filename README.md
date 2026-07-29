@@ -79,7 +79,7 @@ docker info
 * [ ] 트러블슈팅 2건 이상 기록
 
 - Docker 실행 환경: OrbStack
-- Docker 버전:
+- Docker 버전:Docker version 28.5.2, build ecc6942
 - Git 버전: git version 2.53.0
 - Editor: VS Code
 
@@ -97,7 +97,12 @@ docker info
 
 ## 4. 수행 과정
 
+### 4.1. 터미널 기본 조작
+#### 4.1.1 실행환경
+![도커 버전 확인](docs/screenshots/terminal-basic-01.png)
 
+
+![도커 버전 확인](docs/screenshots/terminal-basic-03.png)
 
 ## 5. 트러블슈팅
 
