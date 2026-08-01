@@ -21,7 +21,7 @@ macOS 터미널에서 파일과 디렉토리를 관리하고 권한을 변경했
 포트 매핑을 통해 호스트 컴퓨터에서 컨테이너의 웹 서버에 접속하고, 바인드 마운트와 Docker 볼륨을 이용해 파일 변경 반영과 데이터 영속성을 검증한다. 모든 과정은 Git으로 버전 관리한 뒤 GitHub 저장소에 게시한다.
 
 ## 2. 실행 환경
-
+ㅣ
 | 구분           | 실행 결과                      |
 | ------------ | -------------------------- |
 | 운영체제         | macOS `[sw_vers 실행 결과]`    |
@@ -85,7 +85,8 @@ docker info
 
 ## 3. 수행 체크리스트
 
-- [ ] 터미널 기본 조작
+- [x] 터미널 기본 조작
+  [x] 절대경로와 상대경로 확인 
 - [ ] 파일 및 디렉토리 권한 변경
 - [ ] Docker 기본 점검
 - [ ] Dockerfile 기반 이미지 제작
@@ -98,12 +99,98 @@ docker info
 ## 4. 수행 과정
 
 ### 4.1. 터미널 기본 조작
-#### 4.1.1 실행환경
-![도커 버전 확인](docs/screenshots/terminal-basic-01.png)
+#### 4.1.1 현재 위치 및 목록 확인
+현재 작업 중인 디렉터리 위치와 파일 목록을 확인했다.  
+`ls -a`를 사용하여 숨김 파일도 함께 확인했다.
+
+```bash
+$ pwd
+/Users/dreamitator5528/Desktop/codysey-workstation
+
+$ ls
+docs  README.md  terminal-practice
+
+$ ls -a
+.  ..  .git  .gitignore  docs  README.md  terminal-practice
+
+$ ls -l
+total 8
+drwxr-xr-x  3 dreamitator5528  dreamitator5528    96  7 29 23:42 docs
+-rw-r--r--  1 dreamitator5528  dreamitator5528  3660  7 29 23:22 README.md
+drwxr-xr-x  2 dreamitator5528  dreamitator5528    64  7 29 21:31 terminal-practice
+```
+
+![현재 위치 및 목록 확인](docs/screenshots/terminal-basic-01.png)
 
 
-![도커 버전 확인](docs/screenshots/terminal-basic-03.png)
+!#### 4.1.2 파일 생성·복사·이름 변경·이동·삭제
 
+연습용 디렉터리로 이동한 뒤 폴더와 파일을 생성하고, 복사·이름 변경·이동·삭제를 수행했다.
+
+```bash
+$ cd terminal-practice
+$ mkdir practice-room
+$ cd practice-room
+
+$ touch empty.txt
+$ echo "Hello Terminal" > message.txt
+
+$ cat message.txt
+Hello Terminal
+
+$ cp message.txt message-copy.txt
+$ mv message-copy.txt copied-message.txt
+
+$ mkdir backup
+$ mv copied-message.txt backup/
+$ rm backup/copied-message.txt
+
+$ ls backup
+```
+
+`ls backup` 실행 후 아무 파일도 출력되지 않아 복사본이 삭제되었음을 확인했다.
+
+![파일 생성·복사·이름 변경·이동·삭제](docs/screenshots/terminal-basic-02.png)
+
+### 4.2. 절대경로와 상대경로 확인
+
+프로젝트 최상위 디렉터리에서 같은 파일을 상대경로와 절대경로로 각각 확인했다.
+
+#### 현재 위치 확인
+
+```bash
+$ pwd
+/Users/dreamitator5528/Desktop/codysey-workstation
+```
+
+`pwd`는 현재 작업 중인 디렉터리의 절대경로를 보여주는 명령어이다.
+
+#### 상대경로로 파일 확인
+
+```bash
+$ ls app/index.html
+app/index.html
+```
+
+`app/index.html`은 현재 위치인 `codysey-workstation`을 기준으로 작성한 상대경로이다.
+
+#### 절대경로로 파일 확인
+
+```bash
+$ ls /Users/dreamitator5528/Desktop/codysey-workstation/app/index.html
+/Users/dreamitator5528/Desktop/codysey-workstation/app/index.html
+```
+
+절대경로는 `/`부터 시작하며 파일이 있는 위치를 처음부터 끝까지 모두 나타낸다.
+
+상대경로와 절대경로는 작성 방식은 다르지만, 위 실습에서는 같은 `index.html` 파일을 가리킨다.
+
+![절대경로와 상대경로 확인](docs/screenshots/path-practice-01.png)
+
+
+#### 배운 점
+
+절대경로는 현재 위치가 바뀌어도 같은 파일을 가리킨다. 상대경로는 현재 작업 중인 디렉터리를 기준으로 하기 때문에 현재 위치에 따라 의미가 달라질 수 있다.
 ## 5. 트러블슈팅
 
 실습 중 발생한 문제와 해결 과정을 기록합니다.
