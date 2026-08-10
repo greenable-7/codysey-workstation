@@ -198,4 +198,3 @@ $ ls /Users/dreamitator5528/Desktop/codysey-workstation/app/index.html
 ## 6. 배운 점
 
 미션을 통해 이해한 내용을 정리합니다.
-1234
