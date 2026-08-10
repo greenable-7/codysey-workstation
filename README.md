@@ -101,7 +101,7 @@ docker info
 ### 4.1. 터미널 기본 조작
 #### 4.1.1 현재 위치 및 목록 확인
 현재 작업 중인 디렉터리 위치와 파일 목록을 확인했다.  
-`ls -a`를 사용하여 숨김 파일도 함께 확인했다.
+`ls -a`를 사용하여 숨김 파일도 함께 확인했다.  
 
 ```bash
 $ pwd
@@ -198,3 +198,6 @@ $ ls /Users/dreamitator5528/Desktop/codysey-workstation/app/index.html
 ## 6. 배운 점
 
 미션을 통해 이해한 내용을 정리합니다. 
+
+
+## 7. Docker 실행 환경 확인 및 기본 실습
