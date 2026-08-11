@@ -201,3 +201,82 @@ $ ls /Users/dreamitator5528/Desktop/codysey-workstation/app/index.html
 
 
 ## 7. Docker 실행 환경 확인 및 기본 실습
+### 7-9. Dockerfile을 이용한 커스텀 이미지 빌드
+
+Ubuntu 이미지를 기반으로 Dockerfile을 작성하고, 이를 빌드하여 `codysey-ubuntu`라는 커스텀 이미지를 생성한 뒤 컨테이너로 실행해 정상 동작을 확인했다.
+
+Dockerfile 내용:
+
+```dockerfile
+FROM ubuntu:latest
+RUN apt-get update
+```
+
+이미지 빌드 및 확인:
+
+```bash
+docker build -t codysey-ubuntu .
+docker images
+```
+
+컨테이너 실행 및 확인:
+
+```bash
+docker run -it codysey-ubuntu bash
+cat /etc/os-release
+exit
+docker ps -a
+```
+### 7-10. nginx 설치 및 포트 매핑
+
+기존 Ubuntu 기반 Dockerfile에 nginx 웹서버를 설치하도록 내용을 추가했다.
+
+Dockerfile 내용:
+
+```dockerfile
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install -y nginx
+```
+```bash
+docker run -d -p 8080:80 codysey-nginx nginx -g "daemon off;"
+docker ps
+docker stop b966e0b44a40
+```
+0.0.0.0:8080->80/tcp
+http://localhost:8080
+포트 매핑 확인 결과:
+
+```text
+0.0.0.0:8080->80/tcp
+```
+브라우저 접속 주소:
+
+http://localhost:8080
+### 7-11. Bind Mount 실습
+호스트의 `app` 폴더를 컨테이너의 nginx 웹 폴더와 연결하기 위해 Bind Mount를 사용했다.
+실행 명령:
+
+```bash
+docker run -d -p 8080:80 -v "$(pwd)/app:/var/www/html" codysey-nginx nginx -g "daemon off;"
+```
+`-v "$(pwd)/app:/var/www/html"` 옵션으로 호스트의 `app` 폴더와 컨테이너의 `/var/www/html` 폴더를 연결했다.
+Bind Mount 연결 확인:
+
+```bash
+docker inspect b106c3b57867
+```
+확인 결과 `Source`는 호스트의 `app` 폴더, `Destination`은 컨테이너의 `/var/www/html`로 표시되었다.
+실제 웹페이지 반영 확인:
+
+```bash
+curl http://localhost:8080
+```
+
+결과:
+
+```html
+<h1>Hello Bind Mount!</h1>
+```
+
+이를 통해 호스트의 `app/index.html` 변경 내용이 컨테이너의 nginx 웹서버에 정상 반영되는 것을 확인했다.
