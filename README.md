@@ -216,7 +216,7 @@ $ ls /Users/dreamitator5528/Desktop/codysey-workstation/app/index.html
 
 
 ## 7. Docker 실행 환경 확인 및 기본 실습
-### 7-9. Dockerfile을 이용한 커스텀 이미지 빌드
+
 docker --version 으로 버전을 확인했다. 
 Docker version 28.5.2, build ecc6942
 
@@ -227,8 +227,54 @@ Docker
 docker run hello-world
 <img width="850" height="534" alt="image" src="https://github.com/user-attachments/assets/39aabce9-331b-4b19-86d3-0fbd96e48c09" />
 
+
+docker images로 이미지 목록을 확인했다. 
+
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+hello-world   latest    e2ac70e7319a   4 months ago   10.1kB
+
 Ubuntu 이미지를 기반으로 Dockerfile을 작성하고, 이를 빌드하여 `codysey-ubuntu`라는 커스텀 이미지를 생성한 뒤 컨테이너로 실행해 정상 동작을 확인했다.
 
+
+
+docker logs 06c4c92e3312
+도커 로그를 확인하다. 
+06c4c92e3312: 컨테이너 ID
+
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+docker run -d --name stats-test ubuntu sleep 300
+sleep 300으로 5분동안 Ubuntu 컨테이너를 실행 상태로 유지시킴
+
+docker stats 
+--no-stream
+CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+6cb8a8d5ec48   stats-test   0.00%     1.715MiB / 15.67GiB   0.01%     1.13kB / 126B   0B / 0B     1
+`docker stats`는 실행 중인 컨테이너의 CPU·메모리 사용량을 실시간으로 계속 보여준다. `--no-stream` 옵션을 사용하면 실시간 갱신을 하지 않고 현재 상태를 한 번만 출력한 뒤 종료한다.
+핵심은 docker stats = 계속 갱신, docker stats --no-stream = 한 번만 확인이야.
+
+
+### 7-9. Dockerfile을 이용한 커스텀 이미지 빌드
 Dockerfile 내용:
 
 ```dockerfile
