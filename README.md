@@ -11,6 +11,8 @@ Terminal, OrbStack, Docker, Git, GitHub를 사용하여
 
 - OS: macOS
 - Shell:# Codyssey Developer Workstation Mission
+- docker version #수정
+- git version #수정 
 
 ## 1. 프로젝트 개요
 
@@ -152,6 +154,19 @@ $ ls backup
 
 ![파일 생성·복사·이름 변경·이동·삭제](docs/screenshots/terminal-basic-02.png)
 
+파일 권한 변경
+chmod 600 app/index.html
+
+chmod 600을 수행했다. 소유자만 읽기,쓰기 가능하고
+나머지 권한 없음이다. 
+r- read 4
+w- write 2
+x- execute 1
+6이 소유자, 0이 그룹, 0이 others
+
+디렉토리 권한 변경
+chmod 700 permission-test-dir
+
 ### 4.2. 절대경로와 상대경로 확인
 
 프로젝트 최상위 디렉터리에서 같은 파일을 상대경로와 절대경로로 각각 확인했다.
@@ -202,7 +217,11 @@ $ ls /Users/dreamitator5528/Desktop/codysey-workstation/app/index.html
 
 ## 7. Docker 실행 환경 확인 및 기본 실습
 ### 7-9. Dockerfile을 이용한 커스텀 이미지 빌드
+docker --version 으로 버전을 확인했다. 
+Docker version 28.5.2, build ecc6942
 
+docker info 를 확인했다.
+Docker 
 Ubuntu 이미지를 기반으로 Dockerfile을 작성하고, 이를 빌드하여 `codysey-ubuntu`라는 커스텀 이미지를 생성한 뒤 컨테이너로 실행해 정상 동작을 확인했다.
 
 Dockerfile 내용:
@@ -227,6 +246,9 @@ cat /etc/os-release
 exit
 docker ps -a
 ```
+-it: 터미널에 입력창을 만들어준다.
+ps: 도커의 모든 컨테이너 목록을 보여주었다.
+
 ### 7-10. nginx 설치 및 포트 매핑
 
 기존 Ubuntu 기반 Dockerfile에 nginx 웹서버를 설치하도록 내용을 추가했다.
@@ -243,6 +265,10 @@ docker run -d -p 8080:80 codysey-nginx nginx -g "daemon off;"
 docker ps
 docker stop b966e0b44a40
 ```
+-detach 백그라운드에서 실행하고
+-p: port로 8080을 80에 연결한다. 
+왜 연결이 필요한가? 컨테이너에 있는 내용물을 컴퓨터에서 보고 싶어서 연결했다.
+도커를 통해 만들어지지 않은 컴퓨터 프로그램들의 실행환경이랑 도커의 실행환경은 분리되어 있다.
 0.0.0.0:8080->80/tcp
 http://localhost:8080
 포트 매핑 확인 결과:
