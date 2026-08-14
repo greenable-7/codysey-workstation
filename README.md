@@ -294,6 +294,8 @@ docker run -d -p 8080:80 -v "$(pwd)/app:/var/www/html" codysey-nginx nginx -g "d
 ```
 `-v "$(pwd)/app:/var/www/html"` 옵션으로 호스트의 `app` 폴더와 컨테이너의 `/var/www/html` 폴더를 연결했다.
 Bind Mount 연결 확인:
+<img width="564" height="303" alt="bind mount  전 수정" src="https://github.com/user-attachments/assets/e77a0929-99db-4e85-917a-02853eaa5642" />
+<img width="309" height="255" alt="스크린샷 2026-08-14 오후 8 20 43" src="https://github.com/user-attachments/assets/6e3e3e76-a7f7-4a6d-8382-6f5d3664a77b" />
 
 ```bash
 docker inspect b106c3b57867
@@ -308,7 +310,8 @@ curl http://localhost:8080
 결과:
 
 ```html
-<h1>Hello Bind Mount!</h1>
+<h1>Hello SoHye!</h1>
 ```
 
 이를 통해 호스트의 `app/index.html` 변경 내용이 컨테이너의 nginx 웹서버에 정상 반영되는 것을 확인했다.
+![Uploading 스크린샷 2026-08-14 오후 8.20.43.png…]()
