@@ -222,6 +222,11 @@ Docker version 28.5.2, build ecc6942
 
 docker info 를 확인했다.
 Docker 
+<img width="858" height="726" alt="image" src="https://github.com/user-attachments/assets/a4f63807-8a23-42d8-ba5c-cc6d0e6c4925" />
+
+docker run hello-world
+<img width="850" height="534" alt="image" src="https://github.com/user-attachments/assets/39aabce9-331b-4b19-86d3-0fbd96e48c09" />
+
 Ubuntu 이미지를 기반으로 Dockerfile을 작성하고, 이를 빌드하여 `codysey-ubuntu`라는 커스텀 이미지를 생성한 뒤 컨테이너로 실행해 정상 동작을 확인했다.
 
 Dockerfile 내용:
