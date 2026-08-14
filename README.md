@@ -277,6 +277,7 @@ docker stop b966e0b44a40
 0.0.0.0:8080->80/tcp
 http://localhost:8080
 포트 매핑 확인 결과:
+<img width="1376" height="718" alt="image" src="https://github.com/user-attachments/assets/66abc893-4b82-445c-bf35-d6d0a0870675" />
 
 ```text
 0.0.0.0:8080->80/tcp
