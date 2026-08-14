@@ -316,6 +316,7 @@ docker run -d -p 8080:80 codysey-nginx nginx -g "daemon off;"
 docker ps
 docker stop b966e0b44a40
 ```
+![alt text](image.png)
 -detach 백그라운드에서 실행하고
 -p: port로 8080을 80에 연결한다. 
 왜 연결이 필요한가? 컨테이너에 있는 내용물을 컴퓨터에서 보고 싶어서 연결했다.
