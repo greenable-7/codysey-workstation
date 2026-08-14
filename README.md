@@ -345,8 +345,6 @@ Bind Mount 연결 확인:
 <img width="564" height="303" alt="bind mount  전 수정" src="https://github.com/user-attachments/assets/e77a0929-99db-4e85-917a-02853eaa5642" />
 <img width="309" height="255" alt="스크린샷 2026-08-14 오후 8 20 43" src="https://github.com/user-attachments/assets/6e3e3e76-a7f7-4a6d-8382-6f5d3664a77b" />
 
-=======
->>>>>>> cd6df38 (Add Docker volume and workstation evidence)
 ```bash
 docker inspect b106c3b57867
 ```
@@ -364,11 +362,8 @@ curl http://localhost:8080
 ```
 
 이를 통해 호스트의 `app/index.html` 변경 내용이 컨테이너의 nginx 웹서버에 정상 반영되는 것을 확인했다.
-<<<<<<< HEAD
 ![Uploading 스크린샷 2026-08-14 오후 8.20.43.png…]()
-=======
 
 Bind Mount는 내 컴퓨터의 파일이나 폴더와 컨테이너 안의 위치를 직접 연결하는 기능입니다. 그래서 호스트의 파일 내용을 수정하면 컨테이너가 연결된 같은 파일을 보기 때문에 웹페이지에도 바로 변경 내용이 반영됩니다.
 호스트 = Docker를 실행하고 있는 내 실제 컴퓨터
 Bind Mount = 내 컴퓨터의 원본 파일을 컨테이너와 연결해서, 원본을 고치면 컨테이너에도 바로 반영되게 하는 것.
->>>>>>> cd6df38 (Add Docker volume and workstation evidence)
