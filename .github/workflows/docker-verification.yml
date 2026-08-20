@@ -52,14 +52,17 @@ jobs:
       - name: Render verification log as screenshot
         shell: bash
         run: |
+          grep -E '^\[[1-9]/9\]|^Docker version|^Server=|^Hello from Docker!|^#9 naming|^<h1>|^NAMES|^codysey-|^Hello Volume!|^REPOSITORY|^DRIVER|^\[PASS\]' \
+            verification-artifacts/docker-verification.log \
+            > verification-artifacts/docker-verification-summary.log
           {
             printf '%s\n' '<!doctype html><html lang="ko"><meta charset="utf-8">'
             printf '%s\n' '<style>body{margin:24px;background:#111;color:#eee;font:16px/1.45 monospace}pre{white-space:pre-wrap}</style><pre>'
-            sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' verification-artifacts/docker-verification.log
+            sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' verification-artifacts/docker-verification-summary.log
             printf '%s\n' '</pre></html>'
           } > verification-artifacts/docker-verification.html
           google-chrome --headless=new --no-sandbox \
-            --window-size=1440,2400 \
+            --window-size=1440,1400 \
             --screenshot=verification-artifacts/docker-verification.png \
             "file://${GITHUB_WORKSPACE}/verification-artifacts/docker-verification.html"
 

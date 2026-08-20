@@ -298,6 +298,21 @@ ls /Users/dreamitator5528/Desktop/codysey-workstation/app/index.html
 
 ## 전체 Docker 재검증 절차
 
+### (추가) GitHub Actions 실제 검증 결과
+
+2026-08-21 GitHub Actions의 Ubuntu 24.04 환경에서 현재 저장소의 Dockerfile과 자동 테스트 스크립트를 실제 실행했다. Docker 28.0.4에서 다음 항목이 모두 성공했고 마지막에 `[PASS] all Docker checks completed`가 출력되었다. 전체 원문은 [`docs/docker-verification.log`](docs/docker-verification.log)에 보존했다.
+
+- Docker CLI 및 daemon 연결
+- `hello-world` 이미지 pull과 컨테이너 실행
+- 현재 Dockerfile 이미지 빌드
+- `8080:80` 매핑과 `Hello SoHye!` HTTP 응답
+- 컨테이너 삭제 후 named volume의 `Hello Volume!` 데이터 재확인
+- 테스트 컨테이너·이미지·볼륨 정리 후 빈 목록 확인
+
+![실행 중인 컨테이너의 실제 HTTP 화면](docs/screenshots/docker-port-live.png)
+
+![Docker 전체 검증 핵심 로그](docs/screenshots/docker-verification.png)
+
 ### (추가) 자동 테스트
 
 Docker daemon이 실행 중인 macOS/Linux 환경에서 실행한다.
