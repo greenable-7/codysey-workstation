@@ -46,7 +46,7 @@ For more examples and ideas, visit:
 #3 DONE 0.0s
 
 #2 [internal] load metadata for docker.io/library/ubuntu:latest
-#2 DONE 1.0s
+#2 DONE 0.9s
 
 #4 [internal] load .dockerignore
 #4 transferring context: 2B done
@@ -58,99 +58,99 @@ For more examples and ideas, visit:
 
 #6 [1/3] FROM docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b
 #6 resolve docker.io/library/ubuntu:latest@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b done
+#6 sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76 0B / 41.57MB 0.1s
+#6 sha256:f3db1cd940786339b09d8a60e47c66fea9502d788e6fab5bec91a4a77d4ced1c 393B / 393B 0.1s done
 #6 sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b 6.69kB / 6.69kB done
 #6 sha256:889d056d5c6c0bfb55789ff3710681d68e50713cb562d2196dc07110599c7a6f 1.39kB / 1.39kB done
 #6 sha256:af52039db3f8df8b54cd80945bdabea797445f414955027fa0bed9cd3908244b 4.39kB / 4.39kB done
-#6 sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76 0B / 41.57MB 0.1s
-#6 sha256:f3db1cd940786339b09d8a60e47c66fea9502d788e6fab5bec91a4a77d4ced1c 0B / 393B 0.1s
-#6 sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76 10.49MB / 41.57MB 0.2s
-#6 sha256:f3db1cd940786339b09d8a60e47c66fea9502d788e6fab5bec91a4a77d4ced1c 393B / 393B 0.2s done
-#6 sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76 41.57MB / 41.57MB 0.3s done
+#6 sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76 16.78MB / 41.57MB 0.2s
+#6 sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76 37.75MB / 41.57MB 0.3s
 #6 extracting sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76
+#6 sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76 41.57MB / 41.57MB 0.3s done
 #6 extracting sha256:06e9d71331fb2b620a4f6c8064e0f84b284bb69a42c7c57b1c962bd4a4cdee76 2.4s done
 #6 extracting sha256:f3db1cd940786339b09d8a60e47c66fea9502d788e6fab5bec91a4a77d4ced1c
 #6 extracting sha256:f3db1cd940786339b09d8a60e47c66fea9502d788e6fab5bec91a4a77d4ced1c done
 #6 DONE 2.9s
 
 #7 [2/3] RUN apt-get update &&     apt-get install -y nginx
-#7 0.461 Get:1 http://security.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
-#7 0.631 Get:2 http://archive.ubuntu.com/ubuntu resolute InRelease [136 kB]
-#7 1.036 Get:3 http://security.ubuntu.com/ubuntu resolute-security/universe amd64 Packages [196 kB]
-#7 1.065 Get:4 http://security.ubuntu.com/ubuntu resolute-security/multiverse amd64 Packages [11.2 kB]
-#7 1.072 Get:5 http://security.ubuntu.com/ubuntu resolute-security/main amd64 Packages [511 kB]
-#7 1.086 Get:6 http://security.ubuntu.com/ubuntu resolute-security/restricted amd64 Packages [431 kB]
-#7 1.410 Get:7 http://archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
-#7 2.142 Get:8 http://archive.ubuntu.com/ubuntu resolute-backports InRelease [136 kB]
-#7 2.277 Get:9 http://archive.ubuntu.com/ubuntu resolute/multiverse amd64 Packages [352 kB]
-#7 2.293 Get:10 http://archive.ubuntu.com/ubuntu resolute/main amd64 Packages [1874 kB]
-#7 2.334 Get:11 http://archive.ubuntu.com/ubuntu resolute/universe amd64 Packages [20.1 MB]
-#7 2.484 Get:12 http://archive.ubuntu.com/ubuntu resolute/restricted amd64 Packages [189 kB]
-#7 2.495 Get:13 http://archive.ubuntu.com/ubuntu resolute-updates/multiverse amd64 Packages [14.3 kB]
-#7 2.502 Get:14 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 Packages [599 kB]
-#7 2.512 Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/restricted amd64 Packages [443 kB]
-#7 2.522 Get:16 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 Packages [300 kB]
-#7 2.529 Get:17 http://archive.ubuntu.com/ubuntu resolute-backports/universe amd64 Packages [567 B]
-#7 3.149 Fetched 25.6 MB in 3s (8498 kB/s)
-#7 3.149 Reading package lists...
-#7 3.800 Reading package lists...
-#7 4.370 Building dependency tree...
-#7 4.494 Reading state information...
-#7 4.513 Solving dependencies...
-#7 4.623 The following additional packages will be installed:
-#7 4.623   nginx-common
-#7 4.624 Suggested packages:
-#7 4.624   fcgiwrap nginx-doc ssl-cert
-#7 4.643 The following NEW packages will be installed:
-#7 4.643   nginx nginx-common
-#7 4.679 0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
-#7 4.679 Need to get 655 kB of archives.
-#7 4.679 After this operation, 1860 kB of additional disk space will be used.
-#7 4.679 Get:1 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 nginx-common all 1.28.3-2ubuntu1.10 [37.8 kB]
-#7 4.698 Get:2 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 nginx amd64 1.28.3-2ubuntu1.10 [617 kB]
-#7 4.819 debconf: unable to initialize frontend: Dialog
-#7 4.819 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#7 4.819 debconf: falling back to frontend: Readline
-#7 4.820 debconf: unable to initialize frontend: Readline
-#7 4.820 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 2.)
-#7 4.820 debconf: falling back to frontend: Teletype
-#7 4.827 debconf: unable to initialize frontend: Teletype
-#7 4.827 debconf: (This frontend requires a controlling tty.)
-#7 4.827 debconf: falling back to frontend: Noninteractive
-#7 5.377 Preconfiguring packages ...
-#7 5.410 Fetched 655 kB in 0s (9639 kB/s)
-#7 5.425 Selecting previously unselected package nginx-common.
-#7 5.425 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7724 files and directories currently installed.)
-#7 5.433 Preparing to unpack .../nginx-common_1.28.3-2ubuntu1.10_all.deb ...
-#7 5.437 Unpacking nginx-common (1.28.3-2ubuntu1.10) ...
-#7 5.462 Selecting previously unselected package nginx.
-#7 5.463 Preparing to unpack .../nginx_1.28.3-2ubuntu1.10_amd64.deb ...
-#7 5.464 Unpacking nginx (1.28.3-2ubuntu1.10) ...
-#7 5.486 Setting up nginx-common (1.28.3-2ubuntu1.10) ...
-#7 5.568 debconf: unable to initialize frontend: Dialog
-#7 5.568 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#7 5.568 debconf: falling back to frontend: Readline
-#7 5.568 debconf: unable to initialize frontend: Readline
-#7 5.568 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8.)
-#7 5.568 debconf: falling back to frontend: Teletype
-#7 5.575 debconf: unable to initialize frontend: Teletype
-#7 5.575 debconf: (This frontend requires a controlling tty.)
-#7 5.575 debconf: falling back to frontend: Noninteractive
-#7 5.723 Setting up nginx (1.28.3-2ubuntu1.10) ...
-#7 5.733 invoke-rc.d: could not determine current runlevel
-#7 5.738 invoke-rc.d: policy-rc.d denied execution of start.
-#7 DONE 5.8s
+#7 0.281 Get:1 http://security.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+#7 0.283 Get:2 http://archive.ubuntu.com/ubuntu resolute InRelease [136 kB]
+#7 0.558 Get:3 http://security.ubuntu.com/ubuntu resolute-security/main amd64 Packages [511 kB]
+#7 0.583 Get:4 http://security.ubuntu.com/ubuntu resolute-security/universe amd64 Packages [196 kB]
+#7 0.591 Get:5 http://security.ubuntu.com/ubuntu resolute-security/restricted amd64 Packages [431 kB]
+#7 0.596 Get:6 http://archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+#7 0.601 Get:7 http://security.ubuntu.com/ubuntu resolute-security/multiverse amd64 Packages [11.2 kB]
+#7 0.728 Get:8 http://archive.ubuntu.com/ubuntu resolute-backports InRelease [136 kB]
+#7 0.780 Get:9 http://archive.ubuntu.com/ubuntu resolute/main amd64 Packages [1874 kB]
+#7 0.808 Get:10 http://archive.ubuntu.com/ubuntu resolute/restricted amd64 Packages [189 kB]
+#7 0.820 Get:11 http://archive.ubuntu.com/ubuntu resolute/universe amd64 Packages [20.1 MB]
+#7 0.965 Get:12 http://archive.ubuntu.com/ubuntu resolute/multiverse amd64 Packages [352 kB]
+#7 0.976 Get:13 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 Packages [300 kB]
+#7 0.986 Get:14 http://archive.ubuntu.com/ubuntu resolute-updates/multiverse amd64 Packages [14.3 kB]
+#7 0.996 Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 Packages [599 kB]
+#7 1.005 Get:16 http://archive.ubuntu.com/ubuntu resolute-updates/restricted amd64 Packages [443 kB]
+#7 1.014 Get:17 http://archive.ubuntu.com/ubuntu resolute-backports/universe amd64 Packages [567 B]
+#7 1.620 Fetched 25.6 MB in 1s (17.2 MB/s)
+#7 1.620 Reading package lists...
+#7 2.214 Reading package lists...
+#7 2.787 Building dependency tree...
+#7 2.906 Reading state information...
+#7 2.927 Solving dependencies...
+#7 3.032 The following additional packages will be installed:
+#7 3.033   nginx-common
+#7 3.033 Suggested packages:
+#7 3.033   fcgiwrap nginx-doc ssl-cert
+#7 3.052 The following NEW packages will be installed:
+#7 3.052   nginx nginx-common
+#7 3.084 0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+#7 3.084 Need to get 655 kB of archives.
+#7 3.084 After this operation, 1860 kB of additional disk space will be used.
+#7 3.084 Get:1 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 nginx-common all 1.28.3-2ubuntu1.10 [37.8 kB]
+#7 3.098 Get:2 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 nginx amd64 1.28.3-2ubuntu1.10 [617 kB]
+#7 3.203 debconf: unable to initialize frontend: Dialog
+#7 3.203 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 3.203 debconf: falling back to frontend: Readline
+#7 3.204 debconf: unable to initialize frontend: Readline
+#7 3.204 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 2.)
+#7 3.204 debconf: falling back to frontend: Teletype
+#7 3.211 debconf: unable to initialize frontend: Teletype
+#7 3.211 debconf: (This frontend requires a controlling tty.)
+#7 3.211 debconf: falling back to frontend: Noninteractive
+#7 3.768 Preconfiguring packages ...
+#7 3.801 Fetched 655 kB in 0s (14.8 MB/s)
+#7 3.815 Selecting previously unselected package nginx-common.
+#7 3.815 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7724 files and directories currently installed.)
+#7 3.821 Preparing to unpack .../nginx-common_1.28.3-2ubuntu1.10_all.deb ...
+#7 3.825 Unpacking nginx-common (1.28.3-2ubuntu1.10) ...
+#7 3.849 Selecting previously unselected package nginx.
+#7 3.849 Preparing to unpack .../nginx_1.28.3-2ubuntu1.10_amd64.deb ...
+#7 3.851 Unpacking nginx (1.28.3-2ubuntu1.10) ...
+#7 3.871 Setting up nginx-common (1.28.3-2ubuntu1.10) ...
+#7 3.951 debconf: unable to initialize frontend: Dialog
+#7 3.951 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 3.951 debconf: falling back to frontend: Readline
+#7 3.951 debconf: unable to initialize frontend: Readline
+#7 3.951 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8.)
+#7 3.951 debconf: falling back to frontend: Teletype
+#7 3.958 debconf: unable to initialize frontend: Teletype
+#7 3.958 debconf: (This frontend requires a controlling tty.)
+#7 3.958 debconf: falling back to frontend: Noninteractive
+#7 4.100 Setting up nginx (1.28.3-2ubuntu1.10) ...
+#7 4.109 invoke-rc.d: could not determine current runlevel
+#7 4.113 invoke-rc.d: policy-rc.d denied execution of start.
+#7 DONE 4.2s
 
 #8 [3/3] COPY app/index.html /var/www/html/index.html
 #8 DONE 0.0s
 
 #9 exporting to image
 #9 exporting layers
-#9 exporting layers 0.3s done
-#9 writing image sha256:070cc13dcc84ec830200ad2b35fbc8d0a50a393743bb6a9d1a464477bc851d22 done
+#9 exporting layers 0.4s done
+#9 writing image sha256:01030eee4bdb866b5350400105dd2a73436756f8efa29fe9a3e60a48b6c3ec0a done
 #9 naming to docker.io/library/codysey-nginx:mission done
-#9 DONE 0.3s
+#9 DONE 0.4s
 [4/9] Port mapping and HTTP response
-edb7d59c48d4f9ba11623c4e9be0bde4b78563bafc0620c413d970dac5f0af68
+3a621005f220fffe4b93ae3879a14f9c7171be751022d6faa216bcc462b9ca56
 <h1>Hello SoHye!</h1>
 <h1>Hello SoHye!</h1>
 NAMES              PORTS                                     STATUS
@@ -173,7 +173,7 @@ NAMES                 IMAGE                   STATUS
 codysey-volume-read   ubuntu:latest           Exited (0) Less than a second ago
 codysey-web-test      codysey-nginx:mission   Up 2 seconds
 REPOSITORY      TAG       IMAGE ID       CREATED         SIZE
-codysey-nginx   mission   070cc13dcc84   3 seconds ago   145MB
+codysey-nginx   mission   01030eee4bdb   3 seconds ago   145MB
 DRIVER    VOLUME NAME
 local     codysey-mission-data
 [9/9] Cleanup and lists after cleanup
