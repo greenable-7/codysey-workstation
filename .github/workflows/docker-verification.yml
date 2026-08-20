@@ -1,0 +1,101 @@
+name: Docker verification evidence
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - Dockerfile
+      - app/**
+      - compose.yaml
+      - scripts/verify-docker.sh
+      - .github/workflows/docker-verification.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run complete Docker verification
+        shell: bash
+        run: |
+          mkdir -p verification-artifacts
+          bash scripts/verify-docker.sh 2>&1 | tee verification-artifacts/docker-verification.log
+
+      - name: Start verified web image for screenshot
+        shell: bash
+        run: |
+          docker build -t codysey-nginx:evidence .
+          docker run -d --name codysey-web-evidence -p 8080:80 codysey-nginx:evidence
+          for attempt in 1 2 3 4 5; do
+            curl --fail http://localhost:8080 && break
+            sleep 1
+          done
+          curl --fail http://localhost:8080
+
+      - name: Capture live port-mapping screenshot
+        shell: bash
+        run: |
+          google-chrome --headless=new --no-sandbox \
+            --window-size=1440,900 \
+            --screenshot=verification-artifacts/docker-port-live.png \
+            http://localhost:8080
+
+      - name: Render verification log as screenshot
+        shell: bash
+        run: |
+          {
+            printf '%s\n' '<!doctype html><html lang="ko"><meta charset="utf-8">'
+            printf '%s\n' '<style>body{margin:24px;background:#111;color:#eee;font:16px/1.45 monospace}pre{white-space:pre-wrap}</style><pre>'
+            sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' verification-artifacts/docker-verification.log
+            printf '%s\n' '</pre></html>'
+          } > verification-artifacts/docker-verification.html
+          google-chrome --headless=new --no-sandbox \
+            --window-size=1440,2400 \
+            --screenshot=verification-artifacts/docker-verification.png \
+            "file://${GITHUB_WORKSPACE}/verification-artifacts/docker-verification.html"
+
+      - name: Show cleanup evidence
+        if: always()
+        shell: bash
+        run: |
+          docker rm -f codysey-web-evidence 2>/dev/null || true
+          docker image rm codysey-nginx:evidence 2>/dev/null || true
+          docker ps -a
+          docker images
+          docker volume ls
+
+      - name: Upload screenshots and log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-verification-evidence
+          path: verification-artifacts/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Commit successful evidence to repository
+        shell: bash
+        run: |
+          cp verification-artifacts/docker-port-live.png docs/screenshots/docker-port-live.png
+          cp verification-artifacts/docker-verification.png docs/screenshots/docker-verification.png
+          cp verification-artifacts/docker-verification.log docs/docker-verification.log
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/screenshots/docker-port-live.png \
+            docs/screenshots/docker-verification.png \
+            docs/docker-verification.log
+          if git diff --cached --quiet; then
+            echo "Evidence files are already current."
+          else
+            git commit -m "Add verified Docker execution evidence"
+            git push
+          fi

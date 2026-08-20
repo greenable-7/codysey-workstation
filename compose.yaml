@@ -1,0 +1,18 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: codysey-nginx:mission
+    ports:
+      - "${HOST_PORT:-8080}:80"
+
+  volume-test:
+    image: ubuntu:latest
+    command: ["sleep", "infinity"]
+    volumes:
+      - codysey-data:/data
+
+volumes:
+  codysey-data:
+    name: codysey-data
