@@ -159,7 +159,11 @@ docker inspect codysey-bind
 curl --fail http://localhost:8080
 ```
 
-`docker inspect`의 mount 정보에서 `Source`는 호스트의 `app`, `Destination`은 `/var/www/html`이어야 한다. bind mount는 호스트 원본을 직접 연결하므로 파일 변경이 재빌드 없이 반영되지만, 컨테이너와 독립적인 데이터 저장이 목적이면 named volume이 더 적합하다.
+`docker inspect`의 mount 정보에서 `Source`는 호스트의 `app`, `Destination`은 `/var/www/html`이어야 한다. bind mount는 호스트의 특정 폴더를 컨테이너에 그대로 연결한다. 따라서 소스 코드처럼 사람이 호스트에서 직접 수정해야 하는 파일에 알맞다.
+
+반면 named volume은 저장 위치를 사용자가 직접 정하지 않고 Docker가 관리하는 별도 저장 공간이다. 컨테이너를 삭제하거나 새로 만들어도 같은 volume을 다시 연결하면 기존 데이터를 계속 사용할 수 있고, 호스트마다 다른 폴더 경로를 지정할 필요도 없다. 그래서 데이터베이스 파일이나 업로드 파일처럼 **컨테이너가 바뀌어도 보존해야 하는 데이터**에는 named volume이 더 적합하다.
+
+> 쉽게 말하면, bind mount는 “내 컴퓨터의 폴더를 컨테이너와 함께 쓰는 방식”이고, named volume은 “Docker가 관리하는 데이터 보관함을 여러 컨테이너가 이어서 쓰는 방식”이다.
 
 ![bind mount 변경 전](docs/screenshots/bind-mount-before.png)
 
