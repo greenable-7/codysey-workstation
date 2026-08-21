@@ -66,7 +66,7 @@ cd ../..
 
 ### (보완) 파일 권한 변경 결과가 확인되는가?
 
-있다. 기존 실습에서는 파일을 `600`, 디렉터리를 `700`으로 변경했다. 변경 전후는 `ls -l`로 확인한다.
+있다. 기존 실습에서는 파일을 `600`, 디렉터리를 `700`으로 변경했고 `ls -l`로 결과를 확인했다. 아래 기존 터미널 캡처에서도 복구된 일반 파일의 `-rw-r--r--`(`644`)와 디렉터리의 `drwxr-xr-x`(`755`) 권한을 확인할 수 있다.
 
 ```bash
 chmod 600 app/index.html
@@ -76,6 +76,8 @@ ls -ld app/index.html permission-test-dir
 ```
 
 예상 결과의 권한 부분은 각각 `-rw-------`와 `drwx------`이다. 다만 웹 서버가 비소유자 권한으로 파일을 읽는 환경에서는 `600`이 접속 실패를 일으킬 수 있으므로 실습 확인 후 웹 파일은 `chmod 644 app/index.html`로 복구한다.
+
+![파일과 디렉터리 권한 확인](docs/screenshots/terminal-basic-01.png)
 
 ### (보완) `docker -version`이 출력되고, Docker가 동작 가능한 상태인가?
 
@@ -114,6 +116,8 @@ docker ps -a
 
 전체 미사용 리소스를 무조건 삭제하는 `docker system prune -a` 대신, 실습에서 만든 이름을 지정해 삭제하여 다른 프로젝트의 데이터를 보호한다. 자동 검증 스크립트도 자신이 만든 컨테이너·이미지·볼륨만 정리한다.
 
+![이미지·컨테이너·볼륨 정리 전후 목록](docs/screenshots/docker-verification.png)
+
 ### (보완) Dockerfile로 이미지 빌드가 가능한가?
 
 가능하다. 현재 `Dockerfile`은 Ubuntu에 nginx를 설치하고 `app/index.html`을 복사한 뒤 80번 포트에서 nginx를 포그라운드로 실행한다.
@@ -124,6 +128,8 @@ docker image inspect codysey-nginx:mission
 ```
 
 `docker build`가 종료 코드 0으로 끝나고 `docker image inspect`가 이미지 정보를 반환하면 빌드 성공이다.
+
+![Dockerfile 빌드 성공 결과](docs/screenshots/docker-verification.png)
 
 ### (보완) 매핑된 포트로 접속이 가능한가?
 
@@ -194,6 +200,8 @@ git log -3 --oneline
 ```
 
 `git status`의 `main...origin/main`은 로컬 `main`이 원격 추적 브랜치 `origin/main`과 연결되어 있다는 뜻이다. `git remote -v`에서는 fetch와 push 주소를 모두 확인한다.
+
+![Git 설정과 GitHub 원격 저장소 연동](docs/screenshots/git-github-link.png)
 
 ---
 
